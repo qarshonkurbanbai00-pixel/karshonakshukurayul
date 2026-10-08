@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<section class="wrap"><h1>Дереккөздер</h1>{% import "macros.html" as b %}<ol>{% for s in S %}<li>{{s.title}} ({{s.year}}) — {{s.source}} {{ b.badge(s.level) }}</li>{% endfor %}</ol></section>{% endblock %}

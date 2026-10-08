@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block content %}<section class="wrap"><h1>Цифрлық архив</h1><input class="search" data-filter=".item" placeholder="Іздеу...">
+<div class="row">{% for c in ['тарихи құжат','газет мақаласы','кітап','фото','карта','сұхбат','зерттеу материалы'] %}<button class="cat" data-cat="{{c}}">{{c}}</button>{% endfor %}<button class="cat" data-cat="">Барлығы</button></div>
+{% import "macros.html" as b %}<div class="grid">{% for s in S %}<div class="item card" data-cat="{{s.category}}"><h3>{{s.title}}</h3><p>{{s.year}} · {{s.category}}</p><p>{{s.text}}</p><small>Дереккөз: {{s.source}} · Файл: {{s.link or 'орны бос'}}</small><br>{{ b.badge(s.level) }}</div>{% endfor %}</div></section>{% endblock %}

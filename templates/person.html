@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}{{ person.name }} — Тұлғалар{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <div class="kicker reveal"><a href="/people" style="color:var(--gold);">← Тұлғалар</a></div>
+    <div class="person-head" style="margin-top:24px;">
+      <div class="reveal">
+        <div class="person-avatar" aria-hidden="true">
+          <svg viewBox="0 0 150 190" fill="none">
+            <ellipse cx="75" cy="52" rx="28" ry="33" fill="rgba(217,179,108,0.35)"/>
+            <path d="M25 190 C25 132 52 108 75 108 C98 108 125 132 125 190 Z" fill="rgba(217,179,108,0.28)"/>
+          </svg>
+        </div>
+        <div class="person-avatar-note">Портреті сақталмаған — силуэт стиліндегі белгі</div>
+      </div>
+      <div>
+        <h1 class="section-title reveal stagger-1">{{ person.name }}</h1>
+        <p class="lead reveal stagger-2" style="color:var(--gold);">{{ person.role }}</p>
+        <div class="reveal stagger-3" style="margin-top:16px;">
+          <span class="badge badge-{{ person.badge_type }}">{{ person.badge }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:10px;">
+  <div class="container">
+    <div class="research-grid">
+      <div class="card reveal">
+        <h3>Қысқаша өмірбаян</h3>
+        <p>{{ person.bio }}</p>
+      </div>
+      <div class="card reveal stagger-1">
+        <h3>Ақшұқырмен байланысы</h3>
+        <p>{{ person.connection }}</p>
+      </div>
+      <div class="card reveal stagger-2">
+        <h3>Тарихи / мәдени үлесі</h3>
+        <p>{{ person.contribution }}</p>
+      </div>
+    </div>
+
+    <div class="section" style="padding-left:0;padding-right:0;padding-bottom:0;">
+      <div class="section-head reveal">
+        <div class="kicker">Байланысты деректер</div>
+        <h2 class="section-title" style="font-size:1.8rem;">Қатысты фактілер</h2>
+      </div>
+      <ul class="fact-list">
+        {% for f in person.related_facts %}
+        <li class="reveal">{{ f }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    {% if related_places %}
+    <div class="section" style="padding-left:0;padding-right:0;padding-bottom:0;">
+      <div class="section-head reveal">
+        <div class="kicker">География</div>
+        <h2 class="section-title" style="font-size:1.8rem;">Қатысты орындар</h2>
+      </div>
+      <div class="chip-row">
+        {% for pl in related_places %}
+        <a href="/map#{{ pl.id }}" class="chip">{{ pl.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if person.sources %}
+    <div class="section" style="padding-left:0;padding-right:0;">
+      <div class="section-head reveal">
+        <div class="kicker">Сілтемелер</div>
+        <h2 class="section-title" style="font-size:1.8rem;">Дереккөздер</h2>
+      </div>
+      <ul class="fact-list">
+        {% for s in person.sources %}
+        <li class="reveal">
+          <span class="badge badge-{{ s.badge_type }}" style="margin-right:10px;">{{ s.badge }}</span>
+          {% if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener" style="color:var(--teal);">{{ s.title }}</a>{% else %}{{ s.title }}{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

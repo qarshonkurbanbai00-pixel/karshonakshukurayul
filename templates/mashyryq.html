@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}<section class="wrap"><h1>Машырық қажы</h1>
+<p class="note">Дәлелденбеген мәліметтер факт ретінде берілмейді. Белгісіз тұстар: «Дерек қажет».</p>
+<div class="grid">{% for t in ['Зерттеу','Мешіт','Медресе','Білім беру','Құдық','Бақ','Жергілікті деректер'] %}<div class="card reveal"><h3>{{t}}</h3><p>Зерттеу барысында толықтырылады. Дерек қажет.</p></div>{% endfor %}</div>
+<h2>Байланысты орындар</h2><div class="grid">{% for p in P if p.group=='mashyryq' %}<div class="card"><h3>{{p.name}}</h3><p>{{p.text}}</p><small>{{p.source}}</small></div>{% endfor %}</div></section>{% endblock %}

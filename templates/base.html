@@ -1,0 +1,11 @@
+<!doctype html><html lang="kk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title|default('Басты бет') }} — АҚШҰҚЫР · ЦИФРЛЫҚ ШЕЖІРЕ</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"></head><body>
+<div id="loader"><span>АҚШҰҚЫР</span></div>
+<header class="nav glass"><a class="logo" href="/">АҚШҰҚЫР</a><button id="burger" aria-label="Мәзір">☰</button>
+<nav id="menu"><a href="/">Басты бет</a>{% for k,v in pages.items() %}<a href="/{{k}}">{{v}}</a>{% endfor %}</nav></header>
+<main>{% block content %}{% endblock %}</main>
+<footer>© Ақшұқыр — Цифрлық шежіре. Мектептік зерттеу жобасы.</footer>
+<button id="top">↑</button>
+
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>{% block scripts %}{% endblock %}</body></html>

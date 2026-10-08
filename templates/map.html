@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<section class="wrap"><h1>Тарихи орындар</h1><p class="note">Координаталар шамамен; нақты GPS енгізіледі (data/places.json).</p><div id="map"></div><div id="fallback" class="grid"></div></section>{% endblock %}{% block scripts %}<script src="{{ url_for('static',filename='js/map.js') }}"></script>{% endblock %}

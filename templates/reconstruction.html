@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block content %}<section class="wrap"><h1>3D реконструкция</h1><p class="note">3D тарихи реконструкция — Тарихи деректерге сүйенген болжамды көрініс. Нақты сақталған ғимарат емес. 🟣</p>
+<div id="v3d"></div><div class="row"><button id="reset">Камераны қайтару</button><button id="full">Толық экран</button></div><p>Басқару: сүйреу — айналдыру, дөңгелек — zoom, Shift+сүйреу — pan. GLB: static/models/ ішіне қойыңыз.</p></section>{% endblock %}{% block scripts %}<script src="{{ url_for('static',filename='js/3d.js') }}"></script>{% endblock %}

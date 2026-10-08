@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}<section class="wrap"><h1>{{title}}</h1>
+<input class="search" data-filter=".item" placeholder="Іздеу...">
+<div class="timeline">{% for e in H %}{% if e.group=='school' %}<article class="item card reveal"><b class="year">{{e.year}}</b><h3>{{e.title}}</h3>
+<p>{{e.text}}</p><div class="ph">Фото/құжат: фото кейін енгізіледі</div><small>Дереккөз: {{e.source}}</small><br>{% import "macros.html" as b %}{{ b.badge(e.level) }}</article>{% endif %}{% endfor %}</div></section>{% endblock %}

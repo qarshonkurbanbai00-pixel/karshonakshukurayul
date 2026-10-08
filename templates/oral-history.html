@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<section class="wrap"><h1>Ақшұқырдың дауысы</h1><div class="grid">{% for i in I %}<div class="card"><h3>{{i.name}}, {{i.age}}</h3><p><b>{{i.topic}}</b></p><blockquote>{{i.quote}}</blockquote><p>{{i.memory}}</p><div class="ph">Аудио/видео: кейін енгізіледі</div></div>{% endfor %}</div></section>{% endblock %}
